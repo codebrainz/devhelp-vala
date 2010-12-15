@@ -1,0 +1,3 @@
+include/devhelp-2.0/
+include/devhelp-2.0/devhelp/
+lib/libdevhelp-2.so

@@ -1,0 +1,10 @@
+Vala bindings for the DevHelp library
+
+This is my first attempt at generating Vala bindings.
+
+To regenerate the bindings, run 'make clean' and then 'make'.
+
+To install the bindings, run 'make install' and the .vapi file will be copied
+to Vala's vapi directory.
+
+To remove the .vapi file from Vala's vapi directory, run 'make uninstall'.
