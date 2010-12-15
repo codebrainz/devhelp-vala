@@ -2,13 +2,13 @@
 
 [CCode (cprefix = "Dh", lower_case_cprefix = "dh_")]
 namespace Dh {
-	[CCode (cheader_filename = "dh-assistant.h")]
+	[CCode (cheader_filename = "devhelp/dh-assistant.h")]
 	public class Assistant : Gtk.Window, Atk.Implementor, Gtk.Buildable {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public Assistant (Dh.Base @base);
 		public bool search (string str);
 	}
-	[CCode (cheader_filename = "dh-assistant-view.h")]
+	[CCode (cheader_filename = "devhelp/dh-assistant-view.h")]
 	public class AssistantView : WebKit.WebView, Atk.Implementor, Gtk.Buildable {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public AssistantView ();
@@ -17,7 +17,7 @@ namespace Dh {
 		public void set_base (Dh.Base @base);
 		public bool set_link (Dh.Link link);
 	}
-	[CCode (cheader_filename = "dh-base.h")]
+	[CCode (cheader_filename = "devhelp/dh-base.h")]
 	public class Base : GLib.Object {
 		[CCode (has_construct_function = false)]
 		public Base ();
@@ -31,7 +31,7 @@ namespace Dh {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public Base.window (Dh.Base @base);
 	}
-	[CCode (cheader_filename = "dh-book.h")]
+	[CCode (cheader_filename = "devhelp/dh-book.h")]
 	public class Book : GLib.Object {
 		[CCode (has_construct_function = false)]
 		public Book (string book_path);
@@ -45,7 +45,7 @@ namespace Dh {
 		public unowned GLib.Node get_tree ();
 		public void set_enabled (bool enabled);
 	}
-	[CCode (cheader_filename = "dh-book-manager.h")]
+	[CCode (cheader_filename = "devhelp/dh-book-manager.h")]
 	public class BookManager : GLib.Object {
 		[CCode (has_construct_function = false)]
 		public BookManager ();
@@ -55,7 +55,7 @@ namespace Dh {
 		public void update ();
 		public virtual signal void disabled_book_list_updated ();
 	}
-	[CCode (cheader_filename = "dh-book-tree.h")]
+	[CCode (cheader_filename = "devhelp/dh-book-tree.h")]
 	public class BookTree : Gtk.TreeView, Atk.Implementor, Gtk.Buildable {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public BookTree (Dh.BookManager book_manager);
@@ -63,7 +63,7 @@ namespace Dh {
 		public void select_uri (string uri);
 		public virtual signal void link_selected (void* p0);
 	}
-	[CCode (cheader_filename = "dh-keyword-model.h")]
+	[CCode (cheader_filename = "devhelp/dh-keyword-model.h")]
 	public class KeywordModel : GLib.Object, Gtk.TreeModel {
 		[CCode (has_construct_function = false)]
 		public KeywordModel ();
@@ -71,11 +71,11 @@ namespace Dh {
 		public void set_words (Dh.BookManager book_manager);
 	}
 	[Compact]
-	[CCode (cheader_filename = "dh-keyword-model.h")]
+	[CCode (cheader_filename = "devhelp/dh-keyword-model.h")]
 	public class KeywordModelPriv {
 	}
 	[Compact]
-	[CCode (ref_function = "dh_link_ref", unref_function = "dh_link_unref", type_id = "DH_TYPE_LINK", cheader_filename = "dh-link.h")]
+	[CCode (ref_function = "dh_link_ref", unref_function = "dh_link_unref", type_id = "DH_TYPE_LINK", cheader_filename = "devhelp/dh-link.h")]
 	public class Link {
 		[CCode (has_construct_function = false)]
 		public Link (Dh.LinkType type, string @base, string id, string name, Dh.Link book, Dh.Link page, string filename);
@@ -91,14 +91,14 @@ namespace Dh {
 		public unowned string get_uri ();
 		public void set_flags (Dh.LinkFlags flags);
 	}
-	[CCode (cheader_filename = "dh-search.h")]
+	[CCode (cheader_filename = "devhelp/dh-search.h")]
 	public class Search : Gtk.VBox, Atk.Implementor, Gtk.Buildable, Gtk.Orientable {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public Search (Dh.BookManager book_manager);
 		public void set_search_string (string str, string book_id);
 		public virtual signal void link_selected (void* link);
 	}
-	[CCode (cheader_filename = "dh-window.h")]
+	[CCode (cheader_filename = "devhelp/dh-window.h")]
 	public class Window : Gtk.Window, Atk.Implementor, Gtk.Buildable {
 		[CCode (type = "GtkWidget*", has_construct_function = false)]
 		public Window (Dh.Base @base);
@@ -107,22 +107,22 @@ namespace Dh {
 		public virtual signal void open_link (string location, Dh.OpenLinkFlags flags);
 	}
 	[Compact]
-	[CCode (cheader_filename = "dh-window.h")]
+	[CCode (cheader_filename = "devhelp/dh-window.h")]
 	public class WindowPriv {
 	}
-	[CCode (cprefix = "DH_ERROR_", has_type_id = false, cheader_filename = "dh-error.h")]
+	[CCode (cprefix = "DH_ERROR_", has_type_id = false, cheader_filename = "devhelp/dh-error.h")]
 	public enum Error {
 		FILE_NOT_FOUND,
 		MALFORMED_BOOK,
 		INVALID_BOOK_TYPE,
 		INTERNAL_ERROR
 	}
-	[CCode (cprefix = "DH_LINK_FLAGS_", has_type_id = false, cheader_filename = "dh-link.h")]
+	[CCode (cprefix = "DH_LINK_FLAGS_", has_type_id = false, cheader_filename = "devhelp/dh-link.h")]
 	public enum LinkFlags {
 		NONE,
 		DEPRECATED
 	}
-	[CCode (cprefix = "DH_LINK_TYPE_", has_type_id = false, cheader_filename = "dh-link.h")]
+	[CCode (cprefix = "DH_LINK_TYPE_", has_type_id = false, cheader_filename = "devhelp/dh-link.h")]
 	public enum LinkType {
 		BOOK,
 		PAGE,
@@ -133,7 +133,7 @@ namespace Dh {
 		ENUM,
 		TYPEDEF
 	}
-	[CCode (cprefix = "DH_OPEN_LINK_NEW_", has_type_id = false, cheader_filename = "dh-window.h")]
+	[CCode (cprefix = "DH_OPEN_LINK_NEW_", has_type_id = false, cheader_filename = "devhelp/dh-window.h")]
 	public enum OpenLinkFlags {
 		WINDOW,
 		TAB
